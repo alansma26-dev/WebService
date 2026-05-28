@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Ingredientes</h2>
+
+<form method="POST">
+    <input name="nombre" placeholder="Nombre">
+    <input name="unidad" placeholder="kg / lt">
+    <input name="precio" placeholder="Precio">
+    <input name="cantidad" placeholder="Cantidad">
+    <button>Agregar</button>
+</form>
+
+<table border="1">
+<tr>
+    <th>Nombre</th>
+    <th>Unidad</th>
+    <th>Precio</th>
+    <th>Cantidad</th>
+    <th>Costo Unitario</th>
+</tr>
+
+{% for i in data %}
+<tr>
+    <td>{{i[0]}}</td>
+    <td>{{i[1]}}</td>
+    <td>{{i[2]}}</td>
+    <td>{{i[3]}}</td>
+    <td>{{i[4]}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

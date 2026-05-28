@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card p-4">
+
+<h2>🍝 Costeo de Platillos</h2>
+
+<form method="POST">
+
+<select
+class="form-control mb-2"
+name="ingrediente">
+
+{% for i in ingredientes %}
+
+<option value="{{ i[0] }}">
+{{ i[0] }}
+</option>
+
+{% endfor %}
+
+</select>
+
+<input
+class="form-control mb-3"
+name="cantidad"
+placeholder="Cantidad usada">
+
+<button class="btn btn-warning">
+Agregar Ingrediente
+</button>
+
+</form>
+
+<hr>
+
+<table class="table table-dark table-hover">
+
+<tr>
+
+<th>Ingrediente</th>
+<th>Cantidad</th>
+<th>Costo</th>
+
+</tr>
+
+{% for r in receta %}
+
+<tr>
+
+<td>{{ r.ingrediente }}</td>
+<td>{{ r.cantidad }}</td>
+<td>${{ r.costo }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h4>
+Costo Total:
+<span class="text-success">
+${{ total }}
+</span>
+</h4>
+
+<h4>
+Precio Sugerido:
+<span class="text-warning">
+${{ venta }}
+</span>
+</h4>
+
+<br>
+
+<a href="/nuevo_costeo" class="btn btn-danger">
+Nuevo Costeo
+</a>
+
+</div>
+
+{% endblock %}

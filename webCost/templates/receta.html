@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Receta</h2>
+
+<form method="POST">
+    <select name="ingrediente">
+        {% for i in ingredientes %}
+        <option value="{{i[0]}}">{{i[0]}}</option>
+        {% endfor %}
+    </select>
+
+    <input name="cantidad" placeholder="Cantidad">
+    <button>Agregar</button>
+</form>
+
+<h3>Total: ${{total}}</h3>
+<h3>Venta: ${{venta}}</h3>
+
+<a href="/exportar">Exportar CSV</a>
+<a href="/nueva">Nueva receta</a>
+
+<table border="1">
+<tr>
+    <th>Ingrediente</th>
+    <th>Cantidad</th>
+    <th>Costo</th>
+</tr>
+
+{% for r in receta %}
+<tr>
+    <td>{{r[0]}}</td>
+    <td>{{r[1]}}</td>
+    <td>{{r[2]}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

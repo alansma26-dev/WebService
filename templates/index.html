@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card p-5">
+
+<h1>
+Bienvenido {{ user }}
+</h1>
+
+<p class="text-secondary">
+Sistema profesional de costeo
+</p>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="card p-4">
+
+<h3>📦 Ingredientes</h3>
+
+<p>
+Administra costos e ingredientes
+</p>
+
+<a href="/ingredientes" class="btn btn-success">
+Abrir
+</a>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="card p-4">
+
+<h3>🍝 Costeo</h3>
+
+<p>
+Calcula el precio de tus platillos
+</p>
+
+<a href="/costeo" class="btn btn-warning">
+Abrir
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
